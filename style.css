@@ -1,11 +1,41 @@
-/* GENERAL */
+
+/***************INDEX***************/
+
+.container2 {  
+  display: grid;
+  grid-template-columns: 0.8fr 1.4fr 0.8fr;
+  grid-template-rows: 0.6fr 1.9fr 0.5fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  justify-items: stretch;
+  
+}
+
+.tête { grid-area: 1 / 1 / 2 / 4;}
+
+.middle { grid-area: 2 / 1 / 3 / 4; }
+
+.footer { grid-area: 3 / 1 / 4 / 4; }
+
+.gauche { grid-area: 2 / 1 / 3 / 2; }
+
+.middle2 { grid-area: 2 / 2 / 3 / 3; }
+
+.droite { grid-area: 2 / 3 / 3 / 4; }
+
+
+
+
+
+/***************CV***************/
+
 *{
     margin: 0;
     box-sizing: border-box;
     
   }
   
-  body{
+  body {  
     font-family: Roboto;
     font-weight: 300;
     font-size: .9rem;
@@ -39,6 +69,10 @@
     border: 2px solid #1C6EA4;
     
   }
+
+  h3{
+    text-align: center;
+  }
   
   .text-blue{
     color: #4472C4;
@@ -63,11 +97,18 @@
   .icon{
     margin-right: .5rem;
   }
-  
+
+  @media only screen and (max-width: 767){
+    .cv-container{
+      grid-template-columns: 100px 100px 100px;
+      grid-template-rows: 100px 100px 100px;
+    }
+  }
+
   .cv-container{
     display: grid;
-    grid-template-columns: 1.1fr 1fr 1fr auto;
-    grid-template-areas: "left-column right-column right-column footer";
+    grid-template-columns: 1.1fr 1fr 1fr;
+    grid-template-areas: "left-column right-column right-column";
     width: 1200px;
     margin: 100px auto;
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
@@ -85,8 +126,8 @@
   .left-column{
     grid-area: left-column;
     padding: 50px;
-    -webkit-border-radius: 15px 15px 15px 15px;
-    border-radius: 15px 15px 15px 15px;
+    -webkit-border-radius: 20px 0 0 20px;
+    border-radius: 20px 0 0 20px;
     background: #092739;
     background: -moz-linear-gradient(left, #092739 0%, #175C89 39%, #2f74a1 100%);
     background: -webkit-linear-gradient(left, #092739 0%, #175C89 39%, #2f74a1 100%);
@@ -102,6 +143,14 @@
     margin: auto;
     display: block;
     margin-bottom: 50px;
+  }
+
+  .programmationlist{
+    list-style-type: none;
+    padding: 0;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    margin: 0 0 1rem;
   }
   
   .skills{
@@ -126,8 +175,8 @@
   .header{
     grid-area: header;
     padding: 50px;
-    -webkit-border-radius: 15px 15px 15px 15px;
-    border-radius: 15px 15px 15px 15px;
+    -webkit-border-radius: 0 20px 0 0;
+    border-radius: 0 20px 0 0;
     background: #EFE6CC;
     background: -moz-linear-gradient(top, #EFE6CC 0%, #BCC3A7 39%, #FFFFFF 100%);
     background: -webkit-linear-gradient(top, #EFE6CC 0%, #BCC3A7 39%, #FFFFFF 100%);
@@ -146,10 +195,10 @@
   /* CONTENT */
   .content{
     grid-area: content;
+    -webkit-border-radius: 0 0 20px 0;
+    border-radius: 0 0 20px 0;
     padding: 50px;
     background-color: #FFFFFF;
-    -webkit-border-radius: 15px 15px 15px 15px;
-    border-radius: 15px 15px 15px 15px;
   }
   
   .experience-list{
@@ -157,6 +206,7 @@
   }
 
   footer{
+    display: grid;
     grid-area: footer;
     background-color: #FFFFFF;
     -webkit-border-radius: 15px 15px 15px 15px;
@@ -166,6 +216,8 @@
     font-size: 14px;
     margin-top: 40px;
     padding: 20px;
+    width: 1200px;
+    margin: 100px auto;
     text-align: center;
     }
     
@@ -179,7 +231,20 @@
     
     .img{
       text-align: center;
+      
     }
+
+    .img button{
+      -webkit-box-shadow: 5px 5px 15px 5px #000000; 
+      box-shadow: 5px 5px 15px 5px #000000;  
+      border-radius: 15px;
+      color: #EFE6CC;
+      height: 30px;
+      background: #1C6EA4;
+      background: -moz-linear-gradient(left, #1C6EA4 0%, #2388CB 50%, #144E75 100%);
+      background: -webkit-linear-gradient(left, #1C6EA4 0%, #2388CB 50%, #144E75 100%);
+      background: linear-gradient(to right, #1C6EA4 0%, #2388CB 50%, #144E75 100%);
+      }
 
     :root {
       --bar: #00b894;
@@ -233,4 +298,21 @@
 
     .eng{
       width: 50%;
+    }
+
+    footer h3{
+      display: table;
+      white-space: nowrap;
+      text-align: center;
+    }
+
+    footer h3:before, h3:after {
+      content: "";
+      display: table-cell;
+      width: 50%;
+      background: url(data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs=) repeat-x left center;
+    }
+
+    .ordiconfig{
+      color:#2388CB;
     }
